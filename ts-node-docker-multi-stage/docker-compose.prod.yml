@@ -1,0 +1,10 @@
+services:
+  ts-node-docker:
+    # Built as part of the build.sh script. View all with docker images --all
+    image: ts-multistage
+    container_name: ts-node-docker-multistage-prod
+    expose:
+      - "4000"
+    ports:
+      - "4000:4000"
+    # command: yarn start Not needed - in dockerfile

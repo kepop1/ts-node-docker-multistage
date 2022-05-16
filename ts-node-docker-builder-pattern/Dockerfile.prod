@@ -1,0 +1,15 @@
+FROM node:16-alpine 
+
+ARG NODE_ENV=production
+ENV NODE_ENV=${NODE_ENV}
+
+WORKDIR /home/node/app
+
+COPY package.json ./
+COPY yarn.lock ./
+
+RUN yarn --immutable
+
+COPY build build
+
+CMD ["node", "build/index.js"]
